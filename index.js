@@ -3,6 +3,7 @@ require('dotenv').config()
 const express =require('express')
 const cors=require('cors')
 const router=require('./Routes/router')
+require('./DB/connection')
 // create an express application
 const plServer=express()
 
