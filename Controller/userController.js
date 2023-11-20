@@ -29,6 +29,7 @@ exports.login=async(req,res)=>{
     const{email,password}=req.body
     try{
         const existingUser=await users.findOne({email,password})
+        // console.log("the existing user",existingUser);
         if(existingUser){
             const token=jwt.sign({userId:existingUser._id},"supersecretkey12345")
             res.status(200).json({
