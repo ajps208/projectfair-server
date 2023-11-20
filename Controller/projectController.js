@@ -27,3 +27,36 @@ exports.addProjects=async (req,res)=>{
     }
    
 }
+
+// getuserprojects
+exports.allUserProjects= async (req,res)=>{
+    const userId=req.payload
+    try {
+        const userProjects=await projects.find({userId})
+        res.status(200).json(userProjects)
+        
+    } catch (error) {
+        res.status(401).json(err)
+    }
+}
+// getallprojects
+exports.allProjects= async (req,res)=>{
+    try {
+        const projectDetails=await projects.find()
+        res.status(200).json(projectDetails)
+        
+    } catch (error) {
+        res.status(401).json(err)
+    }
+}
+
+// gethomeprojects
+exports.gethomeProjects= async (req,res)=>{
+    try {
+        const homeProjects=await projects.find().limit(3)
+        res.status(200).json(homeProjects)
+        
+    } catch (error) {
+        res.status(401).json(err)
+    }
+}
