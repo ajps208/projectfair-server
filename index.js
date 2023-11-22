@@ -10,6 +10,7 @@ const plServer=express()
 plServer.use(cors())
 plServer.use(express.json())
 plServer.use(router)
+plServer.use('/uploads',express.static('./uploads'))
 const PORT=4000 || process.env.PORT
 plServer.listen(PORT,()=>{console.log(`Project fair server started at ${PORT} and  waiting for client request!!!`);})
 // http get request 
