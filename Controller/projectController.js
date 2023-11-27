@@ -83,3 +83,15 @@ exports.editProjects= async (req,res)=>{
    }
 
 }
+
+// delete project
+exports.deleteProjects= async (req,res)=>{
+    // get project details
+   const {id}=req.params
+   try {
+       const removeProject=await projects.findByIdAndDelete({_id:id})
+       res.status(200).json(removeProject)
+   } catch (error) {
+    res.status(401).json(err)
+   }  
+}
