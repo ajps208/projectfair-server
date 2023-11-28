@@ -45,6 +45,7 @@ exports.login=async(req,res)=>{
 }
 
 // edituser
+// new 
 exports.editUser = async (req,res)=>{
     const userId = req.payload
     const {username,email,password,github,linkedin,profile} = req.body
